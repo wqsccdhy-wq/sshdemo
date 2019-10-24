@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @ClassName UserController
@@ -27,11 +29,23 @@ public class UserController {
     @RequestMapping("info")
     @ResponseBody
     public UserInfo info() {
-        BehaviorUnitSystem behaviorUnitSystem = behaviorUnitSystemService.getBehaviorUnitSystemById("1");
-        System.out.printf(behaviorUnitSystem.getName());
         UserInfo userInfo = new UserInfo();
         userInfo.setUserId(123);
         userInfo.setUserName("wq");
         return userInfo;
+    }
+
+    /**
+     * http://localhost:8080/sshdemo/user/unitSystem?id=1
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping("unitSystem")
+    public String unitSystem(HttpServletRequest request, HttpServletResponse response){
+        String id = request.getParameter("id");
+        BehaviorUnitSystem behaviorUnitSystem = behaviorUnitSystemService.getBehaviorUnitSystemById(id);
+        request.setAttribute("unitSystem",behaviorUnitSystem);
+        return "unitSystem";
     }
 }

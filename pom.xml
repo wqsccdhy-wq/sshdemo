@@ -21,6 +21,9 @@
     <springVersion>4.3.12.RELEASE</springVersion>
     <hibernateVersion>4.3.5.Final</hibernateVersion>
     <jstlVersion>1.2</jstlVersion>
+    <jstlApiVersion>1.2</jstlApiVersion>
+    <jstlImplVersion>1.2</jstlImplVersion>
+
     <taglibVersion>1.1.2</taglibVersion>
     <servletVersion>3.0-alpha-1</servletVersion>
 
@@ -177,6 +180,24 @@
       <version>28.1-jre</version>
     </dependency>
 
+    <!-- jstl -->
+    <dependency>
+      <groupId>javax.servlet.jsp.jstl</groupId>
+      <artifactId>jstl</artifactId>
+      <version>${jstlVersion}</version>
+    </dependency>
+    <!-- jstl-api -->
+    <dependency>
+      <groupId>javax.servlet.jsp.jstl</groupId>
+      <artifactId>jstl-api</artifactId>
+      <version>${jstlApiVersion}</version>
+    </dependency>
+    <!-- jstl-impl -->
+    <dependency>
+      <groupId>org.glassfish.web</groupId>
+      <artifactId>jstl-impl</artifactId>
+      <version>${jstlImplVersion}</version>
+    </dependency>
 
     <dependency>
       <groupId>junit</groupId>
