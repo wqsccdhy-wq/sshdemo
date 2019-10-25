@@ -26,6 +26,10 @@ public class UserController {
     @Resource
     private BehaviorUnitSystemService behaviorUnitSystemService;
 
+    /**
+     *
+     * @return
+     */
     @RequestMapping("info")
     @ResponseBody
     public UserInfo info() {
