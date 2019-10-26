@@ -17,15 +17,12 @@ public class BehaviorUnitSystemDaoImpl implements BehaviorUnitSystemDao {
 
     @Resource
     SessionFactory sf = null;
+
     @Override
     public BehaviorUnitSystem getBehaviorUnitSystemById(String id) {
         Session session = null;
         BehaviorUnitSystem behaviorUnitSystem = null;
         try {
-            //实例化Configuration，这行代码默认加载hibernate.cfg.xml文件
-            //Configuration conf = new Configuration().configure();
-            //以Configuration创建SessionFactory
-
             //实例化Session
             session = sf.openSession();
             String hql = "from BehaviorUnitSystem where id=:id ";
@@ -44,5 +41,26 @@ public class BehaviorUnitSystemDaoImpl implements BehaviorUnitSystemDao {
             }
         }
         return behaviorUnitSystem;
+    }
+
+    @Override
+    public List<BehaviorUnitSystem> getBehaviorUnitSystems(String id) {
+        Session session = null;
+        List<BehaviorUnitSystem> result = null;
+        try {
+            //实例化Session
+            session = sf.openSession();
+            String hql = "from BehaviorUnitSystem order by id desc";
+            Query query = session.createQuery(hql);
+            //query.setString("id",id);
+            result = query.list();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+        return result;
     }
 }
