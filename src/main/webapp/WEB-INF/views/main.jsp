@@ -1,17 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="header.jsp"%>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>LarryBlogCMS-Home</title>
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <link rel="stylesheet" type="text/css" href="../common/layui/css/layui.css" media="all">
-    <link rel="stylesheet" type="text/css" href="../common/bootstrap/css/bootstrap.css" media="all">
-    <link rel="stylesheet" type="text/css" href="../common/global.css">
     <link rel="stylesheet" type="text/css" href="../css/main.css" media="all">
 </head>
 <body>
@@ -248,7 +240,7 @@
 
 </section>
 
-<script type="text/javascript" src="../common/layui/layui.js"></script>
+<%--<script type="text/javascript" src="../common/layui/layui.js"></script>--%>
 <script type="text/javascript">
     layui.use(['jquery','layer','element'],function(){
         window.jQuery = window.$ = layui.jquery;
