@@ -85,7 +85,7 @@
             <!-- 左侧菜单 -->
             <ul class="layui-nav layui-nav-tree">
                 <li class="layui-nav-item layui-this">
-                    <a href="javascript:;" data-url="../main/main">
+                    <a href="javascript:;" data-url="../main/main" onclick="showPage('../main/main','后台首页')">
                         <i class="iconfont icon-home1" data-icon='icon-home1'></i>
                         <span>后台首页</span>
                     </a>
@@ -129,7 +129,7 @@
                         <dd>
                             <a href="javascript:;" data-url="table.html">
                                 <i class="iconfont icon-yonghu1" data-icon='icon-yonghu1'></i>
-                                <span>有线条表格</span>
+                                <span>各地市信息</span>
                             </a>
                         </dd>
                         <dd>
@@ -139,9 +139,9 @@
                             </a>
                         </dd>
                         <dd>
-                            <a href="javascript:;" data-url="myloginfo.html">
+                            <a href="javascript:;" onclick="showPage('../unitSystem/list','各地市信息')">
                                 <i class="iconfont icon-quanxian2" data-icon='icon-quanxian2'></i>
-                                <span>无线条表格</span>
+                                <span>各地市信息</span>
                             </a>
                         </dd>
                     </dl>
@@ -327,7 +327,7 @@
         <div class="layui-tab layui-tab-card larry-tab-box" id="larry-tab" lay-filter="demo" lay-allowclose="true">
             <div class="go-left key-press pressKey" id="titleLeft" title="滚动至最右侧"><i class="larry-icon larry-weibiaoti6-copy"></i> </div>
             <ul class="layui-tab-title">
-                <li class="layui-this" id="admin-home"><i class="iconfont icon-diannao1"></i><em>后台首页</em></li>
+                <li class="layui-this" id="admin-home"><i class="iconfont icon-diannao1"></i><em id="showTitle">后台首页</em></li>
             </ul>
             <div class="go-right key-press pressKey" id="titleRight" title="滚动至最左侧"><i class="larry-icon larry-right"></i></div>
             <ul class="layui-nav closeBox">
@@ -361,6 +361,7 @@
 <script type="text/javascript" src="../common/layui/layui.js"></script>
 <script type="text/javascript" src="../js/larry.js"></script>
 <script type="text/javascript" src="../js/index.js"></script>
+<script type="text/javascript" src="../js/index_js.js"></script>
 <!-- 锁屏 -->
 <div class="lock-screen" style="display: none;">
     <div id="locker" class="lock-wrapper">

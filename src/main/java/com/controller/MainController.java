@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * @ClassName MainController
- * @Description: 后台关联系统首页
+ * @Description: 后台管理系统首页
  * @Author wq
  * @Date 2019-10-26
  * @Version V1.0
