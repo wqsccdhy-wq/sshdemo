@@ -8,5 +8,7 @@ public interface BehaviorUnitSystemDao {
 
     public BehaviorUnitSystem getBehaviorUnitSystemById(String id);
 
-    public List<BehaviorUnitSystem> getBehaviorUnitSystems(String id);
+    public List<BehaviorUnitSystem> getBehaviorUnitSystems(String id,int offset,int length);
+
+    public Long getAllRowCount();
 }

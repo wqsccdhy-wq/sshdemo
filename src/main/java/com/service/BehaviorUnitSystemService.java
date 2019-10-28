@@ -1,5 +1,6 @@
 package com.service;
 
+import com.common.model.Page;
 import com.entity.BehaviorUnitSystem;
 
 import java.util.List;
@@ -13,5 +14,5 @@ public interface BehaviorUnitSystemService {
      * @param id
      * @return
      */
-    public List<BehaviorUnitSystem> getBehaviorUnitSystems(String id);
+    public Page<BehaviorUnitSystem> getBehaviorUnitSystems(String id, int currentPage, int pageSize);
 }

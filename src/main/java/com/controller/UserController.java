@@ -60,12 +60,12 @@ public class UserController {
      * @param response
      * @return
      */
-    @RequestMapping("allUnitSystem")
+   /* @RequestMapping("allUnitSystem")
     public String allUnitSystem(HttpServletRequest request, HttpServletResponse response){
         String id = request.getParameter("id");
         List<BehaviorUnitSystem> result = behaviorUnitSystemService.getBehaviorUnitSystems(id);
         request.setAttribute("result",result);
         request.setAttribute("size",result.size());
         return "index";
-    }
+    }*/
 }

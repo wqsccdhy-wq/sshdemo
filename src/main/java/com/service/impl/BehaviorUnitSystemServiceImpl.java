@@ -1,5 +1,6 @@
 package com.service.impl;
 
+import com.common.model.Page;
 import com.dao.BehaviorUnitSystemDao;
 import com.entity.BehaviorUnitSystem;
 import com.service.BehaviorUnitSystemService;
@@ -26,7 +27,15 @@ public class BehaviorUnitSystemServiceImpl implements BehaviorUnitSystemService 
      * @return
      */
     @Override
-    public List<BehaviorUnitSystem> getBehaviorUnitSystems(String id) {
-        return behaviorUnitSystemDao.getBehaviorUnitSystems(id);
+    public Page<BehaviorUnitSystem> getBehaviorUnitSystems(String id, int currentPage, int pageSize) {
+        Page<BehaviorUnitSystem> page = new Page<BehaviorUnitSystem>();
+        int allRow = behaviorUnitSystemDao.getAllRowCount().intValue();
+        int offset = page.countOffset(currentPage, pageSize);
+        List<BehaviorUnitSystem> datas = behaviorUnitSystemDao.getBehaviorUnitSystems(id, offset, pageSize);
+        page.setPageNo(currentPage);
+        page.setPageSize(pageSize);
+        page.setTotalRecords(allRow);
+        page.setList(datas);
+        return page;
     }
 }

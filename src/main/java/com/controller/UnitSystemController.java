@@ -1,6 +1,8 @@
 package com.controller;
 
+import com.common.model.Page;
 import com.entity.BehaviorUnitSystem;
+import com.google.common.base.Strings;
 import com.service.BehaviorUnitSystemService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,8 +28,14 @@ public class UnitSystemController {
 
     @RequestMapping("list")
     public String unitSystem(HttpServletRequest request, HttpServletResponse response){
-        List<BehaviorUnitSystem> result = behaviorUnitSystemService.getBehaviorUnitSystems("");
-        request.setAttribute("result",result);
+        String pageNo = request.getParameter("pageNo");
+        if (Strings.isNullOrEmpty(pageNo)) {
+            pageNo = "1";
+        }
+        Page<BehaviorUnitSystem> page = behaviorUnitSystemService.getBehaviorUnitSystems("", Integer.valueOf(pageNo), 5);
+        List<BehaviorUnitSystem> results = page.getList();
+        request.setAttribute("page",page);
+        request.setAttribute("result",results);
         return "unitSystem/unitSystems";
     }
 }

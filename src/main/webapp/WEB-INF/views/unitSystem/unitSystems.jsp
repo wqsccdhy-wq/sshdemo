@@ -105,15 +105,13 @@
     layui.use(['jquery','layer','element','laypage'],function(){
         window.jQuery = window.$ = layui.jquery;
         window.layer = layui.layer;
-        var element = layui.element(),
-            laypage = layui.laypage;
-
+        var element = layui.element(), laypage = layui.laypage;
 
         laypage({
             cont: 'page',
-            pages: 10 //总页数
+            pages: ${page.totalRecords} //总页数
             ,
-            groups: 5 //连续显示分页数
+            groups: ${page.pageSize} //连续显示分页数
             ,
             jump: function(obj, first) {
                 //得到了当前页，用于向服务端请求对应数据
@@ -124,7 +122,7 @@
             }
         });
 
-        laypage({
+        /*laypage({
             cont: 'page2',
             pages: 10 //总页数
             ,
@@ -137,7 +135,7 @@
                     //layer.msg('第 '+ obj.curr +' 页');
                 }
             }
-        });
+        });*/
     });
 </script>
 </body>

@@ -44,7 +44,7 @@ public class BehaviorUnitSystemDaoImpl implements BehaviorUnitSystemDao {
     }
 
     @Override
-    public List<BehaviorUnitSystem> getBehaviorUnitSystems(String id) {
+    public List<BehaviorUnitSystem> getBehaviorUnitSystems(String id,int offset,int length) {
         Session session = null;
         List<BehaviorUnitSystem> result = null;
         try {
@@ -53,6 +53,8 @@ public class BehaviorUnitSystemDaoImpl implements BehaviorUnitSystemDao {
             String hql = "from BehaviorUnitSystem order by id desc";
             Query query = session.createQuery(hql);
             //query.setString("id",id);
+            query.setFirstResult(offset);
+            query.setMaxResults(length);
             result = query.list();
         } catch (HibernateException e) {
             e.printStackTrace();
@@ -62,5 +64,13 @@ public class BehaviorUnitSystemDaoImpl implements BehaviorUnitSystemDao {
             }
         }
         return result;
+    }
+
+    @Override
+    public Long getAllRowCount() {
+        String hql = "select count(*) from BehaviorUnitSystem";
+        Session session = sf.openSession();
+        Query query = session.createQuery(hql);
+        return Long.parseLong(query.uniqueResult().toString());
     }
 }
