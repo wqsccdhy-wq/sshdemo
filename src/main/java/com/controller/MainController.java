@@ -1,12 +1,10 @@
 package com.controller;
 
-import com.entity.BehaviorUnitSystem;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 
 /**
  * @ClassName MainController
@@ -20,12 +18,12 @@ import java.util.List;
 public class MainController {
 
     @RequestMapping("index")
-    public String index(HttpServletRequest request, HttpServletResponse response){
+    public String index(HttpServletRequest request, HttpServletResponse response) {
         return "index";
     }
 
     @RequestMapping("main")
-    public String mainIndex(HttpServletRequest request, HttpServletResponse response){
+    public String mainIndex(HttpServletRequest request, HttpServletResponse response) {
         return "main";
     }
 }

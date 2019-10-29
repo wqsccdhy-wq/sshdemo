@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 
 /**
  * @ClassName UserController
@@ -42,25 +41,27 @@ public class UserController {
 
     /**
      * http://localhost:8080/sshdemo/user/unitSystem?id=1
+     * 
      * @param request
      * @param response
      * @return
      */
     @RequestMapping("unitSystem")
-    public String unitSystem(HttpServletRequest request, HttpServletResponse response){
+    public String unitSystem(HttpServletRequest request, HttpServletResponse response) {
         String id = request.getParameter("id");
         BehaviorUnitSystem behaviorUnitSystem = behaviorUnitSystemService.getBehaviorUnitSystemById(id);
-        request.setAttribute("unitSystem",behaviorUnitSystem);
+        request.setAttribute("unitSystem", behaviorUnitSystem);
         return "unitSystem";
     }
 
     /**
      * http://localhost:8080/sshdemo/user/allUnitSystem
+     * 
      * @param request
      * @param response
      * @return
      */
-   /* @RequestMapping("allUnitSystem")
+    /* @RequestMapping("allUnitSystem")
     public String allUnitSystem(HttpServletRequest request, HttpServletResponse response){
         String id = request.getParameter("id");
         List<BehaviorUnitSystem> result = behaviorUnitSystemService.getBehaviorUnitSystems(id);

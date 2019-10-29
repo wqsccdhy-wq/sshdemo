@@ -27,15 +27,16 @@ public class UnitSystemController {
     private BehaviorUnitSystemService behaviorUnitSystemService;
 
     @RequestMapping("list")
-    public String unitSystem(HttpServletRequest request, HttpServletResponse response){
+    public String unitSystem(HttpServletRequest request, HttpServletResponse response) {
         String pageNo = request.getParameter("pageNo");
         if (Strings.isNullOrEmpty(pageNo)) {
             pageNo = "1";
         }
-        Page<BehaviorUnitSystem> page = behaviorUnitSystemService.getBehaviorUnitSystems("", Integer.valueOf(pageNo), 5);
+        Page<BehaviorUnitSystem> page =
+            behaviorUnitSystemService.getBehaviorUnitSystems("", Integer.valueOf(pageNo), 5);
         List<BehaviorUnitSystem> results = page.getList();
-        request.setAttribute("page",page);
-        request.setAttribute("result",results);
+        request.setAttribute("page", page);
+        request.setAttribute("result", results);
         return "unitSystem/unitSystems";
     }
 }

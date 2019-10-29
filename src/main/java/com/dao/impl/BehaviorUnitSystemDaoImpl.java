@@ -23,14 +23,14 @@ public class BehaviorUnitSystemDaoImpl implements BehaviorUnitSystemDao {
         Session session = null;
         BehaviorUnitSystem behaviorUnitSystem = null;
         try {
-            //实例化Session
+            // 实例化Session
             session = sf.openSession();
             String hql = "from BehaviorUnitSystem where id=:id ";
             Query query = session.createQuery(hql);
-            query.setString("id",id);
+            query.setString("id", id);
             List list = query.list();
-            if (CollectionUtils.isNotEmpty(list)){
-                behaviorUnitSystem = (BehaviorUnitSystem) list.get(0);
+            if (CollectionUtils.isNotEmpty(list)) {
+                behaviorUnitSystem = (BehaviorUnitSystem)list.get(0);
             }
 
         } catch (HibernateException e) {
@@ -44,15 +44,15 @@ public class BehaviorUnitSystemDaoImpl implements BehaviorUnitSystemDao {
     }
 
     @Override
-    public List<BehaviorUnitSystem> getBehaviorUnitSystems(String id,int offset,int length) {
+    public List<BehaviorUnitSystem> getBehaviorUnitSystems(String id, int offset, int length) {
         Session session = null;
         List<BehaviorUnitSystem> result = null;
         try {
-            //实例化Session
+            // 实例化Session
             session = sf.openSession();
             String hql = "from BehaviorUnitSystem order by id desc";
             Query query = session.createQuery(hql);
-            //query.setString("id",id);
+            // query.setString("id",id);
             query.setFirstResult(offset);
             query.setMaxResults(length);
             result = query.list();

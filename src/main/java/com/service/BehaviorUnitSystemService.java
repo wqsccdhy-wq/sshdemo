@@ -3,14 +3,13 @@ package com.service;
 import com.common.model.Page;
 import com.entity.BehaviorUnitSystem;
 
-import java.util.List;
-
 public interface BehaviorUnitSystemService {
 
     public BehaviorUnitSystem getBehaviorUnitSystemById(String id);
 
     /**
      * 查询所有的BehaviorUnitSystem
+     * 
      * @param id
      * @return
      */
