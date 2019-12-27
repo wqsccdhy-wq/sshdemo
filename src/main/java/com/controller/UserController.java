@@ -51,7 +51,7 @@ public class UserController {
         String id = request.getParameter("id");
         BehaviorUnitSystem behaviorUnitSystem = behaviorUnitSystemService.getBehaviorUnitSystemById(id);
         request.setAttribute("unitSystem", behaviorUnitSystem);
-        return "unitSystem";
+        return "unitSystem/unitSystems";
     }
 
     /**
