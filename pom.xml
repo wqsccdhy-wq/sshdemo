@@ -255,6 +255,26 @@
         </plugin>
       </plugins>
     </pluginManagement>
+   <!-- maven打war包注意之xml、properties文件没打进去解决方法-->
+   <!-- https://blog.csdn.net/qq1940879801/article/details/77716124-->
+    <resources>
+      <resource>
+        <!-- 编译之后包含xml -->
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.xml</include>
+        </includes>
+        <filtering>true</filtering>
+      </resource>
+      <!-- 编译之后包含xml和properties -->
+      <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>**/*</include>
+        </includes>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
 
   </build>
 </project>
